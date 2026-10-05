@@ -1,0 +1,6 @@
+<style name="Theme.YourAppTheme" parent="Theme.MaterialComponents...">
+    <!-- Required color attributes -->
+    <item name="colorOnBackground">@color/debug_color_white</item>
+    <item name="colorOnSurface">@color/debug_color_white</item>
+    <item name="colorOnPrimary">@color/debug_color_white</item>
+</style> 

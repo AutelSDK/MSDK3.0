@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?><!-- item_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:clickable="true"
+    android:padding="6dp">
+    <LinearLayout
+        android:background="@drawable/debug_shape_list_item_default_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:textSize="12sp"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textViewSn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textViewVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textViewType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textViewConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textViewActive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textViewGimbal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textViewLens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_color_white"
+            android:padding="2dp"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- More elements can be added, e.g. dividers -->
+
+</LinearLayout>

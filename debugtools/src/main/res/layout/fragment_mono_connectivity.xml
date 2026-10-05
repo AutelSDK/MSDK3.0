@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/debug_dimen_dp_12">
+
+    <TextView
+        android:id="@+id/tv_mono_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/debug_shape_list_item_default_4"
+        android:padding="@dimen/debug_dimen_dp_12"
+        android:textColor="@color/debug_color_white"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_mono_device_id_label"
+            android:textColor="@color/debug_color_white"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_device_id"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:inputType="number"
+            android:text="1"
+            android:textColor="@color/debug_color_white"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_refresh_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF6B35"
+            android:text="@string/debug_mono_refresh_status"
+            android:textColor="@color/debug_color_white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_retry_connect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF6B35"
+            android:text="@string/debug_mono_retry_connect"
+            android:textColor="@color/debug_color_white"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_probe_catalog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF6B35"
+            android:text="@string/debug_mono_probe_catalog"
+            android:textColor="@color/debug_color_white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_probe_gimbal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF6B35"
+            android:text="@string/debug_mono_probe_gimbal"
+            android:textColor="@color/debug_color_white"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_probe_flight_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF6B35"
+        android:text="@string/debug_mono_probe_flight_control"
+        android:textColor="@color/debug_color_white"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btn_probe_vel_ctrl_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF6B35"
+        android:text="@string/debug_mono_probe_vel_ctrl_report"
+        android:textColor="@color/debug_color_white"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btn_clear_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF6B35"
+        android:text="@string/debug_mono_clear_log"
+        android:textColor="@color/debug_color_white"
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:id="@+id/scroll_log"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/debug_shape_list_item_default_4">
+
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:padding="@dimen/debug_dimen_dp_12"
+            android:textColor="@color/debug_color_white"
+            android:textSize="11sp" />
+    </ScrollView>
+</LinearLayout>

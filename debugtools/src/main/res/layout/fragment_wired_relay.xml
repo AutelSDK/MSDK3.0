@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/debug_dimen_dp_12">
+
+    <LinearLayout
+        android:id="@+id/statusbar_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#55000000"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:text="@string/debug_text_status" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            tools:text="Connect" />
+
+        <TextView
+            android:id="@+id/tv_role_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/debug_dimen_dp_12"
+            android:textColor="#FFF"
+            android:text="@string/debug_text_role" />
+
+        <TextView
+            android:id="@+id/tv_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            tools:text="Master" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/debug_dimen_dp_12"
+            android:textColor="#FFF"
+            android:text="LocalType:" />
+
+        <TextView
+            android:id="@+id/tv_local_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            tools:text="RC" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/debug_dimen_dp_12"
+            android:textColor="#FFF"
+            android:text="RemoteType:" />
+
+        <TextView
+            android:id="@+id/tv_remote_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            tools:text="RC" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/debug_dimen_dp_15"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/relay_mode_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusbar_layout" />
+
+    <!-- Relay mode switch area -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relay_mode_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/debug_dimen_dp_8"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!--relay role selection-->
+        <LinearLayout
+            android:id="@+id/relay_role_switch_section"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/debug_dimen_dp_12"
+            android:padding="@dimen/debug_dimen_dp_12"
+            android:background="#25F5F5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="@string/debug_relay_master_rc_label"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:id="@+id/tv_relay_role_state"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:gravity="start"
+                tools:text="Opened" />
+            <Button
+                android:id="@+id/btn_relay_role_switch"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/debug_relay_role_switch_btn"
+                android:backgroundTint="#FF6B35"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <!--relay switch-->
+        <LinearLayout
+            android:id="@+id/relay_mode_switch_section"
+            android:orientation="horizontal"
+            android:padding="@dimen/debug_dimen_dp_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/relay_role_switch_section"
+            tools:ignore="MissingConstraints">
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="@string/debug_relay_net_share_label"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:id="@+id/tv_relay_open_state"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:gravity="start"
+                tools:text="Opened" />
+            <Button
+                android:id="@+id/btn_relay_switch"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/debug_relay_net_share_btn"
+                android:backgroundTint="#FF6B35"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

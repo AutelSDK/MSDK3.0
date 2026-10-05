@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black" />
+
+        <!-- Hint text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_hint"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etAcceptLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Accept language (optional, leave empty for system default, e.g. CHINA)"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp" />
+
+        <!-- Model info input area -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_model_info_section"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etModelName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Model name (required)"
+            android:text="Qwen34BInstruct"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/etModelVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Model version (required, e.g. V1.0.0.0)"
+            android:text="V1.0.0.0"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp" />
+
+        <!-- Action button area -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_actions_section"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnUpgradeModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_start_upgrade"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Upgrade result display area -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_upgrade_result_section"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvUpgradeResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_no_result"
+            android:padding="8dp"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:minHeight="100dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Upgrade progress display -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_upgrade_progress_section"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="0"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvDownloadProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
+        <!-- Log display area -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_log_section"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvLogInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="8dp"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:minHeight="200dp"
+            android:textSize="12sp"
+            android:fontFamily="monospace" />
+
+        <Button
+            android:id="@+id/tvClearLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_sota_clear_log"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>
+

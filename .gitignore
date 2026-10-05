@@ -1,0 +1,12 @@
+.gradle
+local.properties
+repo
+.idea
+.vscode
+build
+# Keystore files
+*.jks
+*.keystore
+*.pem
+*.key
+*.p12

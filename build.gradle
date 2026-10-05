@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    apply from: './dependencies.gradle'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+}
+
+ext {
+    isBuildSnapshot = { Project p ->
+        if (!p.hasProperty('BUILD_SNAPSHOT_VERSION')) {
+            return false
+        }
+        return p.BUILD_SNAPSHOT_VERSION != null && p.BUILD_SNAPSHOT_VERSION.toLowerCase() == "true"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

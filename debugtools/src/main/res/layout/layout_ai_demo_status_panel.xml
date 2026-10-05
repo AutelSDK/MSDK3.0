@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ai_status_panel_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_ai_demo_status_panel"
+    android:orientation="vertical"
+    android:padding="@dimen/debug_dimen_dp_12">
+
+    <TextView
+        android:id="@+id/tv_ai_session_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/debug_color_4CAF50"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Status: Detecting (AI_DETECT)" />
+
+    <TextView
+        android:id="@+id/tv_ai_lens_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/debug_white"
+        android:textSize="12sp"
+        tools:text="Lens: Zoom  lensId=1" />
+
+    <TextView
+        android:id="@+id/tv_ai_device_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/debug_gray_light"
+        android:textSize="12sp"
+        tools:text="Device: Connected  deviceId=1" />
+
+    <TextView
+        android:id="@+id/tv_ai_target_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/debug_white"
+        android:textSize="12sp"
+        tools:text="Targets: 0  |  Stream 1920x1080" />
+
+    <TextView
+        android:id="@+id/tv_ai_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_ai_demo_status_error"
+        android:padding="8dp"
+        android:textColor="@color/debug_color_FF0000"
+        android:textSize="12sp"
+        android:visibility="gone"
+        tools:text="Error: current lens does not support AI detection"
+        tools:visibility="visible" />
+
+    <ScrollView
+        android:id="@+id/sv_ai_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:maxHeight="120dp">
+
+        <TextView
+            android:id="@+id/tv_ai_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/debug_gray_light"
+            android:textSize="11sp"
+            tools:text="[Person] (100,200)-(300,400)" />
+    </ScrollView>
+
+</LinearLayout>

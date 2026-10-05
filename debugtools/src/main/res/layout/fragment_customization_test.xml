@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/debug_black">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:paddingBottom="40dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/debug_black"
+            android:padding="@dimen/debug_dimen_dp_12">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/tv_navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/part_aircraft_navigation"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_start_point_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start_location_setting"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_navigation" />
+
+            <Button
+                android:id="@+id/btn_home_point_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_32"
+                android:text="@string/vps_home_location_setting"
+                app:layout_constraintStart_toEndOf="@id/btn_start_point_set"
+                app:layout_constraintTop_toTopOf="@+id/btn_start_point_set" />
+
+            <Button
+                android:id="@+id/btn_watermark_effect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_32"
+                android:text="@string/debug_watermark_effect"
+                app:layout_constraintStart_toEndOf="@id/btn_home_point_set"
+                app:layout_constraintTop_toTopOf="@+id/btn_home_point_set" />
+
+            <TextView
+                android:id="@+id/tv_attitude_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/attitude_lost_action"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_start_point_set" />
+
+            <Spinner
+                android:id="@+id/sp_attitude_mode"
+                style="@style/DebugSpinnerStyle"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_8"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:spinnerMode="dropdown"
+                app:layout_constraintStart_toEndOf="@id/tv_attitude_action"
+                app:layout_constraintTop_toBottomOf="@+id/btn_start_point_set" />
+
+            <LinearLayout
+                android:id="@+id/layout_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_attitude_action">
+
+                <TextView
+                    android:id="@+id/tv_attitude_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/attitude_hover_height"
+                    android:textColor="@color/debug_white" />
+
+                <EditText
+                    android:id="@+id/input_hover_height"
+                    android:layout_width="120dp"
+                    android:layout_height="@dimen/debug_dimen_dp_32"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_8"
+                    android:autofillHints="120"
+                    android:background="@drawable/debug_input_stroke"
+                    android:textColor="@color/debug_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="m   [20, 800]"
+                    android:textColor="@color/debug_white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_set_attitude_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/set_attitude_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_height" />
+
+            <TextView
+                android:id="@+id/tv_attitude_direction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/attitude_escape_direction"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_set_attitude_height" />
+
+            <SeekBar
+                android:id="@+id/sb_attitude_direction"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_8"
+                android:max="360"
+                android:progress="0"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:thumb="@drawable/seek_bar_thumb"
+                app:layout_constraintStart_toEndOf="@id/tv_attitude_direction"
+                app:layout_constraintTop_toTopOf="@id/tv_attitude_direction" />
+
+            <TextView
+                android:id="@+id/tv_current_degree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0°"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@id/sb_attitude_direction"
+                app:layout_constraintTop_toTopOf="@id/sb_attitude_direction" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_8"
+                android:text="@string/attitude_escape_direction_remark"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@id/tv_current_degree"
+                app:layout_constraintTop_toTopOf="@id/tv_current_degree" />
+
+            <TextView
+                android:id="@+id/tv_night_slam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_15"
+                android:text="@string/part_night_slam"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_attitude_direction" />
+
+            <LinearLayout
+                android:id="@+id/layout_vps_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_night_slam">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vps_switch"
+                    android:textColor="@color/debug_white"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_vps_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_gnss_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_32"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toEndOf="@+id/layout_vps_switch"
+                app:layout_constraintTop_toTopOf="@+id/layout_vps_switch">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gnss_switch"
+                    android:textColor="@color/debug_white"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_gnss_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_rio_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_vps_switch">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/debug_text_rio_switch"
+                    android:textColor="@color/debug_white"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_rio_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                    android:enabled="false"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_atti_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@+id/layout_gnss_switch"
+                app:layout_constraintTop_toTopOf="@+id/layout_rio_switch">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/debug_text_atti_switch"
+                    android:textColor="@color/debug_white"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_atti_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_current_sensor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/debug_current_sensor"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_atti_switch" />
+
+            <Button
+                android:id="@+id/btn_night_slam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_4"
+                android:text="@string/part_night_slam"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_current_sensor" />
+
+            <Button
+                android:id="@+id/btn_exit_night_slam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                android:text="@string/exit_night_slam"
+                app:layout_constraintStart_toEndOf="@+id/btn_night_slam"
+                app:layout_constraintTop_toTopOf="@+id/btn_night_slam" />
+
+            <TextView
+                android:id="@+id/tv_position_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_10"
+                android:text="@string/debug_text_control_mode"
+                android:textColor="@color/debug_white"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_current_sensor"
+                app:layout_constraintStart_toEndOf="@+id/tv_current_sensor" />
+
+            <TextView
+                android:id="@+id/tv_communication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_15"
+                android:text="@string/part_communication"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_night_slam" />
+
+            <Button
+                android:id="@+id/btn_wired_relay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/debug_wired_relay_page"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_communication" />
+
+            <TextView
+                android:id="@+id/tv_frequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/frequency_available"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_wired_relay" />
+
+            <Spinner
+                android:id="@+id/spinner_frequency"
+                style="@style/DebugSpinnerStyle"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:spinnerMode="dropdown"
+                app:layout_constraintStart_toEndOf="@+id/tv_frequency"
+                app:layout_constraintTop_toBottomOf="@+id/btn_wired_relay" />
+
+            <TextView
+                android:id="@+id/tv_current_frequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_4"
+                android:text="@string/current_settings"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_frequency" />
+
+            <TextView
+                android:id="@+id/tv_signal_strength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                android:text="@string/signal_strength"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@+id/tv_current_frequency"
+                app:layout_constraintTop_toTopOf="@+id/tv_current_frequency" />
+
+            <TextView
+                android:id="@+id/tv_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/part_other"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_wind_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/wind_speed"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_other" />
+
+            <TextView
+                android:id="@+id/tv_wind_direction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_32"
+                android:text="@string/wind_direction"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@id/tv_wind_speed"
+                app:layout_constraintTop_toTopOf="@+id/tv_wind_speed" />
+
+            <Button
+                android:id="@+id/btn_media_directory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/media_dir_setting"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_wind_speed" />
+
+            <TextView
+                android:id="@+id/tv_current_directory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/current_directory"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_media_directory" />
+
+            <Button
+                android:id="@+id/btn_task_directory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/task_dir_setting"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_current_directory" />
+
+            <TextView
+                android:id="@+id/tv_virtual_joystick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_15"
+                android:text="@string/virtual_joystick"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_signal_strength" />
+
+            <TextView
+                android:id="@+id/tv_priority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/debug_text_priority"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_virtual_joystick" />
+
+            <Spinner
+                android:id="@+id/sp_joystick_priority"
+                style="@style/DebugSpinnerStyle"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_8"
+                android:spinnerMode="dropdown"
+                app:layout_constraintStart_toEndOf="@id/tv_priority"
+                app:layout_constraintTop_toTopOf="@+id/tv_priority" />
+
+            <TextView
+                android:id="@+id/tv_drone_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/part_drone_heading"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_task_directory" />
+
+            <TextView
+                android:id="@+id/tv_drone_attitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/current_drone_attitude"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/tv_drone_heading" />
+
+            <TextView
+                android:id="@+id/tv_drone_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/current_drone_position"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/tv_drone_attitude" />
+
+            <TextView
+                android:id="@+id/tv_drone_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/current_drone_speed"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/tv_drone_position" />
+
+            <TextView
+                android:id="@+id/tv_gimbal_attitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/current_gimbal_attitude"
+                android:textColor="@color/debug_white"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/tv_drone_speed" />
+
+
+            <Button
+                android:id="@+id/btn_position_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/drone_position_set"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_gimbal_attitude" />
+
+            <Button
+                android:id="@+id/btn_velocity_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                android:text="@string/drone_velocity_set"
+                app:layout_constraintStart_toEndOf="@+id/btn_position_set"
+                app:layout_constraintTop_toTopOf="@+id/btn_position_set" />
+
+            <Button
+                android:id="@+id/btn_image_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/drone_image_set"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_position_set" />
+
+            <Button
+                android:id="@+id/btn_joystick_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                android:text="@string/drone_joystick_set"
+                app:layout_constraintStart_toEndOf="@+id/btn_image_set"
+                app:layout_constraintTop_toTopOf="@+id/btn_image_set" />
+
+            <TextView
+                android:id="@+id/tv_follow_mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_15"
+                android:text="@string/part_follow_mission"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_image_set" />
+
+            <LinearLayout
+                android:id="@+id/layout_height_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_follow_mission">
+
+                <TextView
+                    android:id="@+id/tv_follow_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/follow_height_setting"
+                    android:textColor="@color/debug_white" />
+
+                <EditText
+                    android:id="@+id/input_follow_height"
+                    android:layout_width="120dp"
+                    android:layout_height="@dimen/debug_dimen_dp_32"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_8"
+                    android:autofillHints="120"
+                    android:background="@drawable/debug_input_stroke"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/debug_dimen_dp_10"
+                    android:textColor="@color/debug_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[10, 800]"
+                    android:textColor="@color/debug_white" />
+
+                <Button
+                    android:id="@+id/btn_follow_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_10"
+                    android:text="@string/setting_follow_height" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_enter_follow_mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_follow_mission"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/layout_height_input" />
+
+            <Button
+                android:id="@+id/btn_exit_follow_mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                android:text="@string/exit_follow_mission"
+                app:layout_constraintStart_toEndOf="@+id/btn_enter_follow_mission"
+                app:layout_constraintTop_toTopOf="@+id/btn_enter_follow_mission" />
+
+            <TextView
+                android:id="@+id/tv_target_tracking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_15"
+                android:text="@string/part_other"
+                android:textColor="@color/debug_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_enter_follow_mission" />
+
+            <Button
+                android:id="@+id/btn_target_tracking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_8"
+                android:text="@string/debug_text_target_lock"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_target_tracking" />
+
+            <Button
+                android:id="@+id/btn_data_security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/debug_dimen_dp_15"
+                android:text="@string/debug_text_data_security"
+                app:layout_constraintStart_toEndOf="@+id/btn_target_tracking"
+                app:layout_constraintTop_toTopOf="@+id/btn_target_tracking" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/log_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/log_panel_header"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="#802196F3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp">
+
+            <TextView
+                android:id="@+id/tv_log_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/debug_log_panel_title"
+                android:textColor="@color/debug_white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btn_log_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="@string/debug_log_panel_clear"
+                android:textColor="@color/debug_white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/log_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#2196F3"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_operation_log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textSize="11sp" />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>
+

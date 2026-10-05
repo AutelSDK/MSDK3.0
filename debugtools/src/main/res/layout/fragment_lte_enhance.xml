@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/debug_mission_shape_bg_codec_default"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/layout_left_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <LinearLayout
+        android:id="@+id/layout_right_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/layout_left_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/tv_transmission_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:layout_marginTop="@dimen/debug_dimen_dp_32"
+        android:text="Transmission Type:"
+        android:textColor="@color/debug_white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_transmission_type"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/debug_dimen_dp_32"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toEndOf="@+id/tv_transmission_type"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_set_rc_server_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:layout_marginTop="@dimen/debug_dimen_dp_15"
+        android:text="Set RC Server Info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_transmission_type" />
+
+
+    <Button
+        android:id="@+id/btn_set_drone_server_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:text="Set Drone Server Info"
+        app:layout_constraintStart_toEndOf="@+id/btn_set_rc_server_info"
+        app:layout_constraintTop_toTopOf="@+id/btn_set_rc_server_info" />
+
+    <Button
+        android:id="@+id/btn_clear_rc_server_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:text="Clear RC Server Info"
+        app:layout_constraintStart_toEndOf="@+id/btn_set_drone_server_info"
+        app:layout_constraintTop_toTopOf="@+id/btn_set_rc_server_info" />
+
+
+    <Button
+        android:id="@+id/btn_clear_drone_server_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:text="Clear Drone Server Info"
+        app:layout_constraintStart_toEndOf="@+id/btn_clear_rc_server_info"
+        app:layout_constraintTop_toTopOf="@+id/btn_set_rc_server_info" />
+
+    <TextView
+        android:id="@+id/tv_link_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:layout_marginTop="@dimen/debug_dimen_dp_15"
+        android:maxLines="6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_set_rc_server_info" />
+
+    <TextView
+        android:id="@+id/tv_alarm_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:layout_marginTop="@dimen/debug_dimen_dp_15"
+        android:maxLines="6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_link_info" />
+
+    <TextView
+        android:id="@+id/tv_left_stream_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/debug_dimen_dp_32"
+        android:layout_marginBottom="@dimen/debug_dimen_dp_32"
+        android:textColor="@color/debug_white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_right_stream_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/debug_dimen_dp_32"
+        android:layout_marginBottom="@dimen/debug_dimen_dp_32"
+        android:textColor="@color/debug_white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

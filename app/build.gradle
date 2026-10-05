@@ -1,0 +1,89 @@
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: '../dependencies.gradle'
+android {
+    compileSdkVersion rootProject.ext.versions.compileSdk
+    packagingOptions {
+        pickFirst 'lib/arm64-v8a/libjingle_peerconnection_so.so'
+    }
+
+    defaultConfig {
+        minSdk rootProject.ext.versions.minSdk
+        targetSdkVersion rootProject.ext.versions.targetSdk
+        versionCode rootProject.ext.versions.versionCode
+        versionName rootProject.ext.versions.versionName
+
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+
+        applicationId "com.robotics.drone.demo"
+    }
+
+    // Signing is optional: supply your own keystore to enable it.
+    // Set STORE_FILE / STORE_PASSWORD / KEY_ALIAS / KEY_PASSWORD in local.properties
+    // (or gradle.properties) and place the keystore next to this build file.
+    // Without a keystore, debug builds use the default Android debug signing key
+    // and release builds are produced unsigned.
+    def keystoreFile = project.hasProperty('STORE_FILE') ? file(STORE_FILE) : null
+    def hasKeystore = keystoreFile != null && keystoreFile.exists()
+
+    signingConfigs {
+        if (hasKeystore) {
+            release {
+                keyAlias KEY_ALIAS
+                keyPassword KEY_PASSWORD
+                storeFile keystoreFile
+                storePassword STORE_PASSWORD
+                v1SigningEnabled true
+                v2SigningEnabled true
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (hasKeystore) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.versions.javaCompatibility
+        targetCompatibility rootProject.ext.versions.javaCompatibility
+        encoding "UTF-8"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+}
+
+def isBuildSnapshot = isBuildSnapshot(project)
+configurations.all {
+    if (isBuildSnapshot) {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+    implementation project(":debugtools")
+
+
+    implementation rootProject.ext.deps.external.android.core_ktx
+    implementation rootProject.ext.deps.external.android.design
+}

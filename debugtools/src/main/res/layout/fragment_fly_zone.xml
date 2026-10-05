@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/debug_dimen_dp_15"
+        android:layout_marginTop="@dimen/debug_dimen_dp_15"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/quer_nfz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Surround NFZ"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/download_auth_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download Auth Zone"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/upload_auth_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Auth Zone"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/delete_auth_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Auth Zone"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/get_auth_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Auth Zone"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:id="@+id/import_geo_file"
+            android:text="Import GEO File"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:id="@+id/push_geo_file"
+            android:text="Upload GEO File"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/get_country_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Country code"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/set_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Location"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/clear_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear Logs"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/debug_dimen_dp_15"
+        android:layout_marginTop="@dimen/debug_dimen_dp_15"
+        android:layout_weight="1"
+        android:background="@drawable/debug_sdk_bg_stroke_common"
+        android:padding="5dp"
+        android:scrollbars="vertical"
+        android:overScrollMode="always"
+        android:textColor="@color/debug_white"
+        android:textSize="16sp" />
+</LinearLayout>

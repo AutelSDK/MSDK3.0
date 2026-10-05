@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/debug_dimen_dp_12"
+        android:background="@drawable/debug_shape_list_item_default_4"
+        android:padding="@dimen/debug_dimen_dp_12"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/debug_test_key_send_delay"
+                android:textSize="14sp"
+                android:textColor="@color/debug_color_white" />
+            <SeekBar
+                android:id="@+id/progress"
+                android:layout_marginStart="10dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0"/>
+
+            <TextView
+                android:id="@+id/delayTime"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/debug_color_white" />
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/nest_enable_view"
+            android:text="@string/debug_test_key_nest_interface"
+            android:textColor="@color/debug_color_white"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+        <Switch
+            android:id="@+id/mesh_enable_view"
+            android:text="@string/debug_test_key_mesh_interface"
+            android:textColor="@color/debug_color_white"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+        <Switch
+            android:id="@+id/match_enable_view"
+            android:text="@string/debug_test_key_match_interface"
+            android:textColor="@color/debug_color_white"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+        <Switch
+            android:id="@+id/dragonFish_enable_view"
+            android:text="@string/debug_test_key_dragon_fish_interface"
+            android:textColor="@color/debug_color_white"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/debug_color_white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_send"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="@string/debug_start" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/debug_test_key_cancel" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/report_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="5dp"
+        android:padding="20dp"
+        android:layout_marginBottom="150dp"
+        android:textColor="@color/debug_color_white" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="5dp"
+        android:padding="20dp"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/debug_color_white" />
+</LinearLayout>

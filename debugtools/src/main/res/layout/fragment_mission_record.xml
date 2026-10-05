@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/enter_record_mode"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/enter_record" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_take_photo"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/take_photo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/exit_record_mode"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/exit_record" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/result_text"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="5dp"
+        android:padding="1dp"
+        android:textSize="20sp"
+        android:textColor="@color/debug_color_white" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_info"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="5dp"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:textColor="@color/debug_color_white" />
+</LinearLayout>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/debug_light_gray2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/debug_dimen_dp_12">
+
+        <!-- Model Selection -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/debug_shape_list_item_default_4"
+            android:orientation="vertical"
+            android:padding="@dimen/debug_dimen_dp_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Drone Model"
+                android:textColor="@color/debug_color_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_6" />
+        </LinearLayout>
+
+        <!-- Direction Checkboxes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/debug_dimen_dp_12"
+            android:background="@drawable/debug_shape_list_item_default_4"
+            android:orientation="vertical"
+            android:padding="@dimen/debug_dimen_dp_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Radar Direction (bitmask)"
+                android:textColor="@color/debug_color_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_current_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_6"
+                android:text="Current: --"
+                android:textColor="@color/debug_gray_light"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_6"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_front"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Front"
+                    android:textColor="@color/debug_gray_light" />
+
+                <CheckBox
+                    android:id="@+id/cb_rear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rear"
+                    android:textColor="@color/debug_gray_light" />
+
+                <CheckBox
+                    android:id="@+id/cb_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Left"
+                    android:textColor="@color/debug_gray_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Right"
+                    android:textColor="@color/debug_gray_light" />
+
+                <CheckBox
+                    android:id="@+id/cb_up"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Up"
+                    android:textColor="@color/debug_gray_light" />
+
+                <CheckBox
+                    android:id="@+id/cb_down"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Down"
+                    android:textColor="@color/debug_gray_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_6"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_set_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Set Switch" />
+
+                <Button
+                    android:id="@+id/btn_get_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_6"
+                    android:layout_weight="1"
+                    android:text="Get Switch" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Listen Control -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/debug_dimen_dp_12"
+            android:background="@drawable/debug_shape_list_item_default_4"
+            android:orientation="vertical"
+            android:padding="@dimen/debug_dimen_dp_12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Radar DetList Listen (/radars/detlist)"
+                android:textColor="@color/debug_color_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_6"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_listen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Start Listen" />
+
+                <Button
+                    android:id="@+id/btn_stop_listen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/debug_dimen_dp_6"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="Stop Listen" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_frame_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/debug_dimen_dp_6"
+                android:text="Frames: 0"
+                android:textColor="@color/debug_gray_light"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Log Area -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="@dimen/debug_dimen_dp_12"
+            android:background="@drawable/debug_shape_list_item_default_4"
+            android:padding="@dimen/debug_dimen_dp_6">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll_log"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/tv_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/debug_gray_light"
+                    android:textSize="12sp" />
+            </androidx.core.widget.NestedScrollView>
+
+            <TextView
+                android:id="@+id/tv_clear_log"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:background="@drawable/debug_shape_list_item_default_4"
+                android:paddingStart="@dimen/debug_dimen_dp_15"
+                android:paddingTop="@dimen/debug_dimen_dp_6"
+                android:paddingEnd="@dimen/debug_dimen_dp_15"
+                android:paddingBottom="@dimen/debug_dimen_dp_6"
+                android:text="@string/debug_clear_all"
+                android:textColor="@color/debug_gray_light" />
+        </FrameLayout>
+
+    </LinearLayout>
+</ScrollView>

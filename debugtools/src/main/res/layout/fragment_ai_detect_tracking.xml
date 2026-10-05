@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/debug_activity_background">
+
+    <FrameLayout
+        android:id="@+id/video_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_video_mask"
+        app:layout_constraintBottom_toTopOf="@id/ai_status_panel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_top_controls">
+
+        <com.autel.player.player.autelplayer.AutelPlayerView
+            android:id="@+id/render_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.autel.sdk.debugtools.tracking.AITrackingView
+            android:id="@+id/ai_tracking_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_top_controls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#99000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/debug_dimen_dp_12"
+        android:paddingVertical="@dimen/debug_dimen_dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_start_recognize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/debug_start" />
+
+        <TextView
+            android:id="@+id/tv_lens_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/debug_dimen_dp_16"
+            android:text="@string/ai_demo_lens_label"
+            android:textColor="@color/debug_white"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <Spinner
+            android:id="@+id/spinner_lens"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/debug_dimen_dp_8"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/ai_status_panel"
+        layout="@layout/layout_ai_demo_status_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
